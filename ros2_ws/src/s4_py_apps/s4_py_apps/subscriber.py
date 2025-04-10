@@ -9,7 +9,7 @@ class PySubscriber(Node):
         super().__init__('py_subscriber_node')
         self.get_logger().info("Python Subscriber node has been started")
         self.subscription = self.create_subscription(
-            HardwareStatus, 'cpp_topic', self.listener_callback, 10)
+            HardwareStatus, 'cpp_hs_topic', self.listener_callback, 10)
         self.subscription2 = self.create_subscription(
             Sphere, 'py_sphere_topic', self.sphere_callback, 10)
         self.subscription  # prevent unused variable warning

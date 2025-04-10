@@ -11,7 +11,7 @@ class CppPublisher : public rclcpp::Node{
         CppPublisher()
         : Node("cpp_publisher_node"){
             RCLCPP_INFO(this->get_logger(), "C++ Publisher node has been started");
-            publisher_ = this->create_publisher<s4_custom_interface::msg::HardwareStatus>("cpp_topic", 10);
+            publisher_ = this->create_publisher<s4_custom_interface::msg::HardwareStatus>("cpp_hs_topic", 10);
             publisher2_ = this->create_publisher<s4_custom_interface::msg::Sphere>("cpp_sphere_topic", 10);
             timer_ = this->create_wall_timer(500ms, std::bind(&CppPublisher::timer_callback, this));
         }

@@ -11,7 +11,7 @@ class CppSubscriber : public rclcpp::Node{
         : Node("cpp_subscriber_node"){
         RCLCPP_INFO(this->get_logger(), "C++ Subscriber node has been started");
         subscription_ = this->create_subscription<s4_custom_interface::msg::HardwareStatus>(
-            "py_topic", 10, std::bind(&CppSubscriber::topic_callback, this, _1));
+            "py_hs_topic", 10, std::bind(&CppSubscriber::topic_callback, this, _1));
         subscription2_ = this->create_subscription<s4_custom_interface::msg::Sphere>(
             "cpp_sphere_topic", 10, std::bind(&CppSubscriber::sphere_callback, this, _1));
         }

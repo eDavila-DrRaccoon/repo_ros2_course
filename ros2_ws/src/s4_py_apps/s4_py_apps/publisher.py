@@ -8,7 +8,7 @@ class PyPublisher(Node):
     def __init__(self):
         super().__init__('py_publisher_node')
         self.get_logger().info("Python Publisher node has been started")
-        self.publisher_ = self.create_publisher(HardwareStatus, 'py_topic', 10)
+        self.publisher_ = self.create_publisher(HardwareStatus, 'py_hs_topic', 10)
         self.publisher2_ = self.create_publisher(Sphere, 'py_sphere_topic', 10)
         timer_period = 0.5  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
