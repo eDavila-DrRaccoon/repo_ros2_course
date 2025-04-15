@@ -1,4 +1,0 @@
-int64 temperature
-bool are_motors_up
-string debug_message
-builtin_interfaces/Time the_time
