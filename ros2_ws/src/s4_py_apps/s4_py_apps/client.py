@@ -22,7 +22,7 @@ class PyClientAsync(Node):
         self.req.a = a
         self.req.b = b
         self.req.c = c
-        return self.client.call_async(self.req)
+        return self.client.call_async(self.req) # future
 
 def main(args=None):
     rclpy.init(args=args)
@@ -30,19 +30,23 @@ def main(args=None):
         print("Usage: client_exe a b c")
         sys.exit(1)
     node = PyClientAsync()
-    future = node.send_request(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
-    # Spin until the future is complete
-    rclpy.spin_until_future_complete(node, future)
-    result = future.result()
-    if result is not None:
-        node.get_logger().info(
-            'Received response: %d + %d + %d = %d' %
-            (int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), result.sum)
-        )
-    else:
-        node.get_logger().error('Failed to call service add_three_ints')
-    node.destroy_node()
-    rclpy.shutdown()
+    try:
+        future = node.send_request(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
+        # Spin until the future is complete
+        rclpy.spin_until_future_complete(node, future)
+        result = future.result()
+        if result is not None:
+            node.get_logger().info(
+                'Received response: %d + %d + %d = %d' %
+                (int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), result.sum)
+            )
+        else:
+            node.get_logger().error('Failed to call service add_three_ints')
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

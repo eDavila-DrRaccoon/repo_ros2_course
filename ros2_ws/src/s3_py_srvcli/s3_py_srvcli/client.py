@@ -32,19 +32,23 @@ def main(args=None):
         print("Usage: client_exe a b")
         sys.exit(1)
     node = PyClientAsync()
-    future = node.send_request(int(sys.argv[1]), int(sys.argv[2]))
-    # Spin until the future is complete
-    rclpy.spin_until_future_complete(node, future)
-    result = future.result()
-    if result is not None:
-        node.get_logger().info(
-            'Received response: %d + %d = %d' %
-            (int(sys.argv[1]), int(sys.argv[2]), result.sum)
-        )
-    else:
-        node.get_logger().error('Failed to call service add_two_ints')
-    node.destroy_node()
-    rclpy.shutdown()
+    try:
+        future = node.send_request(int(sys.argv[1]), int(sys.argv[2]))
+        # Spin until the future is complete
+        rclpy.spin_until_future_complete(node, future)
+        result = future.result()
+        if result is not None:
+            node.get_logger().info(
+                'Received response: %d + %d = %d' %
+                (int(sys.argv[1]), int(sys.argv[2]), result.sum)
+            )
+        else:
+            node.get_logger().error('Failed to call service add_two_ints')
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

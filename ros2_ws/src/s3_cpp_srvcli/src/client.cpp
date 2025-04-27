@@ -5,27 +5,28 @@ using namespace std::chrono_literals;
 
 class CppClientAsync : public rclcpp::Node {
     public:
-        CppClientAsync(int64_t a, int64_t b)
-            : Node("cpp_client_async_node"), a_(a), b_(b) {
-                RCLCPP_INFO(this->get_logger(), "C++ Client node has been started");
-                client_ = this->create_client<example_interfaces::srv::AddTwoInts>("cpp_add_two_ints_service");
-                // Wait for the service to become available
-                while (!client_->wait_for_service(1s)) {
-                    if (!rclcpp::ok()) {
-                        RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for the service. Exiting.");
-                        return;
-                    }
-                    RCLCPP_INFO(this->get_logger(), "Waiting for service to become available...");
+        CppClientAsync(int64_t a, int64_t b):
+            Node("cpp_client_async_node"), a_(a), b_(b) {
+                    RCLCPP_INFO(this->get_logger(), "C++ Client node has been started");
+                    client_ = this->create_client<example_interfaces::srv::AddTwoInts>("cpp_add_two_ints_service");
+                    // Wait for the service to become available
+                    while (!client_->wait_for_service(1s)) {
+                        if (!rclcpp::ok()) {
+                            RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for the service. Exiting.");
+                            return;
+                        }
+                        RCLCPP_INFO(this->get_logger(), "Waiting for service to become available...");
+                }
+                // Request is called
+                send_request();
             }
-            // Request is called
-            send_request();
-        }
 
     private:
         void send_request() {
             std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request = std::make_shared<example_interfaces::srv::AddTwoInts::Request>();
             request->a = a_;
             request->b = b_;
+            // Asynchronously send the request
             // auto result = client_->async_send_request(request);
             rclcpp::Client<example_interfaces::srv::AddTwoInts>::FutureAndRequestId future_and_request_id =
             client_->async_send_request(request);

@@ -14,8 +14,8 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='s5_cpp_camera',
-            name='cpp_camera_node',
             executable='camera_exe',
+            name='cpp_camera_node',
             parameters=[params_file],
             output = 'screen'
         )

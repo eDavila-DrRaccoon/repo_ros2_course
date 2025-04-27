@@ -22,7 +22,7 @@ class ImageSubscriber(Node):
             # Display the image
             cv2.imshow('Python Camera User', cv_image)
             cv2.waitKey(1)
-            # self.main_process(cv_image)
+            self.main_process(cv_image)
         except CvBridgeError as e:
             self.get_logger().error(f'CvBridge Error: {e}')
     

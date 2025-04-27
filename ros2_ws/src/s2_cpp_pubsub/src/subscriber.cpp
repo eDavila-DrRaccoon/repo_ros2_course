@@ -7,8 +7,8 @@ using std::placeholders::_1;
 class CppSubscriber : public rclcpp::Node
 {
     public:
-        CppSubscriber()
-        : Node("cpp_subscriber_node") {
+        CppSubscriber():
+        Node("cpp_subscriber_node") {
             RCLCPP_INFO(this->get_logger(), "C++ Subscriber node has been started");
             subscription_ = this->create_subscription<std_msgs::msg::String>(
             "py_str_topic", 10, std::bind(&CppSubscriber::topic_callback, this, _1));

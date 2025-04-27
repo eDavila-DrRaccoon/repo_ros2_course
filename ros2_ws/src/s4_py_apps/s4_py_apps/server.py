@@ -21,9 +21,10 @@ def main(args=None):
     node = PyService()
     try:
         rclpy.spin(node)
-    except:
-        node.destroy_node()
+    except KeyboardInterrupt:
+        pass
     finally:
+        node.destroy_node()
         rclpy.shutdown()
 
 if __name__ == '__main__':
