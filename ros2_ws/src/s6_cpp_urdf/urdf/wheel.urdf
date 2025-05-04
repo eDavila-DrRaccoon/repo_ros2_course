@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<robot name="my_robot">
-
+<robot name="wheel_robot">
     <link name="wheel_base_footprint"/>
 
     <link name="wheel_base_link">

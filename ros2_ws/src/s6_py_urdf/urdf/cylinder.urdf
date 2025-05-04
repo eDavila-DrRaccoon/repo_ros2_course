@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="my_robot">
+<robot name="cylinder_robot">
     <link name="cylinder_base_footprint"/>
 
     <link name="cylinder_base_link">
