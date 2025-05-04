@@ -34,7 +34,7 @@ def generate_launch_description():
         Node(
             package='s6_cpp_urdf',
             executable='cylinder_exe',
-            name='cylinder_exe',
+            name='cylinder',
             output='screen'
         ),
         # Node(

@@ -12,8 +12,8 @@ using namespace std::chrono;
 class StatePublisher : public rclcpp::Node{
     public:
         StatePublisher(rclcpp::NodeOptions options=rclcpp::NodeOptions()):
-            Node("state_publisher",options){
-                RCLCPP_INFO(this->get_logger(),"State publisher node has been started");
+            Node("cpp_state_publisher_node",options){
+                RCLCPP_INFO(this->get_logger(),"C++ state publisher node has been started");
                 
                 // Create a publisher to tell robot_state_publisher the JointState information.
                 // robot_state_publisher will deal with this transformation
@@ -66,7 +66,7 @@ void StatePublisher::publish(){
     t.transform.translation.y = sin(angle) * 1.0;
     t.transform.translation.z = 0.0;
 
-    // Euler angle into Quanternion and add rotation change
+    // Euler angle into Quaternion and add rotation change
     tf2::Quaternion q;
     q.setRPY(0,0,angle + M_PI / 2);
     t.transform.rotation.x = q.x();

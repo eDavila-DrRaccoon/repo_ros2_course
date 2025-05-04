@@ -9,8 +9,8 @@ import math
 
 class StatePublisher(Node):
     def __init__(self):
-        super().__init__('state_publisher')
-        self.get_logger().info("State publisher node has been started")
+        super().__init__('py_state_publisher_node')
+        self.get_logger().info("Python state publisher node has been started")
 
         # Create a publisher to tell robot_state_publisher the JointState information.
         # robot_state_publisher will deal with this transformation
@@ -54,7 +54,7 @@ class StatePublisher(Node):
         t.transform.translation.y = math.sin(self.angle) * 1.0
         t.transform.translation.z = 0.0
 
-        # Euler angle into Quanternion and add rotation change
+        # Euler angle into Quaternion and add rotation change
         q = tf_transformations.quaternion_from_euler(0, 0, self.angle + math.pi / 2)
         t.transform.rotation.x = q[0]
         t.transform.rotation.y = q[1]

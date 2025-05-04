@@ -7,11 +7,6 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
-
-# Added manually
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
@@ -31,6 +26,7 @@ ament_target_dependencies(r2d2_exe rclcpp geometry_msgs sensor_msgs tf2_ros tf2_
 add_executable(rdk_x3_robot_exe src/rdk_x3_robot.cpp)
 ament_target_dependencies(rdk_x3_robot_exe rclcpp geometry_msgs sensor_msgs tf2_ros tf2_geometry_msgs)
 
+# Added manually
 install(TARGETS
   cylinder_exe
   wheel_exe

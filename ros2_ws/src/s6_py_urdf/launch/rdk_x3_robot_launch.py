@@ -34,7 +34,7 @@ def generate_launch_description():
         Node(
             package='s6_py_urdf',
             executable='rdk_x3_robot_exe',
-            name='rdk_x3_robot_exe',
+            name='rdk_x3_robot',
             output='screen'
         ),
         # Node(

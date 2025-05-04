@@ -34,7 +34,7 @@ def generate_launch_description():
         Node(
             package='s6_py_urdf',
             executable='r2d2_exe',
-            name='r2d2_exe',
+            name='r2d2',
             output='screen'
         ),
         # Node(
