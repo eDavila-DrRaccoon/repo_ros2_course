@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -6,15 +7,26 @@ import cv2
 from std_msgs.msg import Header
 import time
 
+def find_devices():
+    for i in range(5): # Check up to 5 devices
+        cap_test = cv2.VideoCapture(i)
+        if cap_test.isOpened():
+            print(f"Device {i} is available.")
+        # Release the VideoCapture object
+        cap_test.release()
+
 class CameraNode(Node):
     def __init__(self):
         super().__init__('py_camera_node')
         self.get_logger().info("Python Camera node has been started")
 
+        # Check available camera IDs
+        # find_devices()
+        
         # Declare parameters with default values
         self.declare_parameter('camera.deviceID', 0)
-        self.declare_parameter('camera.width', 960)
-        self.declare_parameter('camera.height', 540)
+        self.declare_parameter('camera.width', 1280)
+        self.declare_parameter('camera.height', 720)
 
         # Get parameters
         self.deviceID = self.get_parameter('camera.deviceID').get_parameter_value().integer_value

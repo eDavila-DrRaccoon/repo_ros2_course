@@ -5,16 +5,30 @@
 #include <opencv2/opencv.hpp>
 #include <chrono>
 
+void find_devices(){
+    for (int i = 0; i < 5; ++i){ // Check up to 5 devices
+        cv::VideoCapture cap_test(i);
+        if (cap_test.isOpened()) {
+            std::cout << "Device " << i << " is available." << std::endl;
+        }
+        // Release the VideoCapture object
+        cap_test.release();
+    }
+}
+
 class CameraNode : public rclcpp::Node {
     public:
         CameraNode(): 
             Node("cpp_camera_node"), frame_count_(0), fps_(0.0) {
                 RCLCPP_INFO(this->get_logger(), "C++ Camera node has been started");
 
+                // Check available camera IDs
+                // find_devices();
+
                 // Declare parameters with default values
                 this->declare_parameter<int>("camera.deviceID", 0);
-                this->declare_parameter<int>("camera.width", 960);
-                this->declare_parameter<int>("camera.height", 540);
+                this->declare_parameter<int>("camera.width", 1280);
+                this->declare_parameter<int>("camera.height", 720);
 
                 // Get parameters
                 this->get_parameter("camera.deviceID", deviceID_);

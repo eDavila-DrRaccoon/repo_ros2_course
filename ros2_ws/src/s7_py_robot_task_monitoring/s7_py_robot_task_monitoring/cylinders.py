@@ -31,8 +31,8 @@ class CylinderVisualizer(Node):
     def pose_callback(self, msg: Pose2D, robot_id: int, kind: str):
         """
         Broadcast a TF frame for a cylinder based on:
-         - robot_id: 1–4
-         - kind: 'pickup' or 'delivery'
+        - robot_id: 1-4
+        - kind: 'pickup' or 'delivery'
         """
         # Determine cylinder index: pickup1→1, delivery1→2, pickup2→3, etc.
         base = (robot_id - 1) * 2

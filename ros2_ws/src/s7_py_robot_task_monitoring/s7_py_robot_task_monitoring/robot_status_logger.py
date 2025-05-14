@@ -3,7 +3,10 @@ import rclpy
 from rclpy.node import Node
 from s7_robot_network_interface.msg import RobotStatus
 from datetime import datetime, timezone
-from zoneinfo import ZoneInfo
+try:
+    from zoneinfo import ZoneInfo  # Available in Python 3.9+ (For Foxy/Ubuntu 22.04 with Python 3.10)
+except ImportError:
+    from backports.zoneinfo import ZoneInfo  # For Python < 3.9 (For Humble/Ubuntu 20.04 with Python 3.8)
 import math
 
 class RobotStatusLogger(Node):

@@ -26,12 +26,17 @@ class CppClientAsync : public rclcpp::Node {
             std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request = std::make_shared<example_interfaces::srv::AddTwoInts::Request>();
             request->a = a_;
             request->b = b_;
-            // Asynchronously send the request
-            // auto result = client_->async_send_request(request);
-            rclcpp::Client<example_interfaces::srv::AddTwoInts>::FutureAndRequestId future_and_request_id =
-            client_->async_send_request(request);
-            std::shared_future<example_interfaces::srv::AddTwoInts::Response::SharedPtr> result =
-            future_and_request_id.future.share();
+
+            /*### Asynchronously send the request ###*/
+            // Standard approach (for Foxy)
+            auto result = client_->async_send_request(request);
+
+            // Specific approach (for Humble)
+            // rclcpp::Client<example_interfaces::srv::AddTwoInts>::FutureAndRequestId future_and_request_id =
+            // client_->async_send_request(request);
+            // std::shared_future<example_interfaces::srv::AddTwoInts::Response::SharedPtr> result =
+            // future_and_request_id.future.share();
+
             // Spin until the future is complete
             if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) ==
                 rclcpp::FutureReturnCode::SUCCESS) {
