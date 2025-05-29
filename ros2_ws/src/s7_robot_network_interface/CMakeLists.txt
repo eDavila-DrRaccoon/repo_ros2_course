@@ -17,7 +17,7 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/RobotStatus.msg"
   "srv/GetTwoPoses.srv"
-  DEPENDENCIES geometry_msgs
+  DEPENDENCIES builtin_interfaces geometry_msgs
 )
 
 if(BUILD_TESTING)

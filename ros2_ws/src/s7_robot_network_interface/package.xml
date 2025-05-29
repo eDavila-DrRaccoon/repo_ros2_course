@@ -3,7 +3,7 @@
 <package format="3">
   <name>s7_robot_network_interface</name>
   <version>0.0.0</version>
-  <description>Task Manager Interface - ID - Pose2D_1 - Pose2D_2</description>
+  <description>Task Manager Interface: .msg and .srv files</description>
   <maintainer email="eduardodavila94@hotmail.com">eduardo</maintainer>
   <license>Apache-2.0</license>
 

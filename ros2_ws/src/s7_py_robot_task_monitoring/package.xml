@@ -3,7 +3,7 @@
 <package format="3">
   <name>s7_py_robot_task_monitoring</name>
   <version>0.0.0</version>
-  <description>Visualization of robot task network</description>
+  <description>Robot Network Task Monitoring</description>
   <maintainer email="eduardodavila94@hotmail.com">eduardo</maintainer>
   <license>Apache-2.0</license>
 

@@ -18,7 +18,8 @@ def generate_launch_description():
         get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')
     
     # Path to your custom world file
-    world_path = os.path.join(pkg_share, 'worlds', 'robot_world.world')
+    # robot_world or tec_warehouse
+    world_path = os.path.join(pkg_share, 'worlds', 'tec_warehouse.world')
 
     return LaunchDescription([
         # 1) Start Gazebo with the specified world and verbosity
