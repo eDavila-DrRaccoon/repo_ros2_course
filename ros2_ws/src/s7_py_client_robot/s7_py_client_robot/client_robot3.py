@@ -5,7 +5,6 @@ from s7_robot_network_interface.srv import GetTwoPoses
 from s7_robot_network_interface.msg import RobotStatus
 from sensor_msgs.msg import JointState
 from geometry_msgs.msg import TransformStamped
-# from geometry_msgs.msg import Pose2D
 from tf2_ros import TransformBroadcaster
 import tf_transformations
 import math
@@ -31,12 +30,12 @@ class PosePublisher(Node):
         self.x = 0.0
         self.y = 0.0
         self.yaw = 0.0
-        self.wheel_angle = 0.0
+        # self.wheel_angle = 0.0
 
         # --- Movement parameters ---
         self.step_size = 0.01       # meters per update
         self.yaw_step = math.pi / 180.0  # radians per update
-        self.wheel_step = math.pi / 180.0  # radians per update
+        # self.wheel_step = math.pi / 180.0  # radians per update
 
         # --- State machine stage ---
         # 0: rotate to pickup
@@ -52,9 +51,9 @@ class PosePublisher(Node):
         self.get_new_poses()
 
         # --- Publishers ---
-        self.joint_pub = self.create_publisher(JointState, 'joint_states', 10)
         self.robot_pub = self.create_publisher(RobotStatus, 'robot_status', 10)
-        self.broadcaster = TransformBroadcaster(self)
+        # self.joint_pub = self.create_publisher(JointState, 'joint_states', 10)
+        # self.broadcaster = TransformBroadcaster(self)
 
         # --- Timer for periodic updates (~30 Hz) ---
         self.timer = self.create_timer(0.033, self.publish)
@@ -185,29 +184,6 @@ class PosePublisher(Node):
             self.get_new_poses()
             self.stage = 0
 
-        # --- Publish joint states ---
-        self.wheel_angle += 4 * self.wheel_step
-        if abs(self.wheel_angle) > math.pi:
-            self.wheel_angle *= -1
-
-        js = JointState()
-        js.header.stamp = self.get_clock().now().to_msg()
-        js.name = [
-            # 'base_joint',
-            'left_front_joint',
-            'left_back_joint',
-            'right_front_joint',
-            'right_back_joint'
-        ]
-        js.position = [
-            # 0.0,
-            self.wheel_angle,
-            self.wheel_angle,
-            -self.wheel_angle,
-            -self.wheel_angle
-        ]
-        self.joint_pub.publish(js)
-
         # --- Publish the current Robot Status ---
         robot_msg = RobotStatus()
         robot_msg.timestamp = self.get_clock().now().to_msg()
@@ -219,21 +195,43 @@ class PosePublisher(Node):
         robot_msg.align_yaw = True
         self.robot_pub.publish(robot_msg)
 
+        # --- Publish joint states ---
+        # self.wheel_angle += 4 * self.wheel_step
+        # if abs(self.wheel_angle) > math.pi:
+        #     self.wheel_angle *= -1
+
+        # js = JointState()
+        # js.header.stamp = self.get_clock().now().to_msg()
+        # js.name = [
+        #     'left_front_joint',
+        #     'left_back_joint',
+        #     'right_front_joint',
+        #     'right_back_joint'
+        # ]
+        # js.position = [
+        #     # 0.0,
+        #     self.wheel_angle,
+        #     self.wheel_angle,
+        #     -self.wheel_angle,
+        #     -self.wheel_angle
+        # ]
+        # self.joint_pub.publish(js)
+
         # --- Publish transform for RViz ---
-        t = TransformStamped()
-        t.header.stamp = self.get_clock().now().to_msg()
-        t.header.frame_id = 'odom'
-        namespace = self.get_namespace().strip('/')
-        t.child_frame_id = f'{namespace}/base_footprint'
-        t.transform.translation.x = self.x
-        t.transform.translation.y = self.y
-        t.transform.translation.z = 0.0
-        q_tf = tf_transformations.quaternion_from_euler(0, 0, self.yaw)
-        t.transform.rotation.x = q_tf[0]
-        t.transform.rotation.y = q_tf[1]
-        t.transform.rotation.z = q_tf[2]
-        t.transform.rotation.w = q_tf[3]
-        self.broadcaster.sendTransform(t)
+        # t = TransformStamped()
+        # t.header.stamp = self.get_clock().now().to_msg()
+        # t.header.frame_id = 'odom'
+        # namespace = self.get_namespace().strip('/')
+        # t.child_frame_id = f'{namespace}/base_footprint'
+        # t.transform.translation.x = self.x
+        # t.transform.translation.y = self.y
+        # t.transform.translation.z = 0.0
+        # q_tf = tf_transformations.quaternion_from_euler(0, 0, self.yaw)
+        # t.transform.rotation.x = q_tf[0]
+        # t.transform.rotation.y = q_tf[1]
+        # t.transform.rotation.z = q_tf[2]
+        # t.transform.rotation.w = q_tf[3]
+        # self.broadcaster.sendTransform(t)
 
 def main(args=None):
     rclpy.init(args=args)

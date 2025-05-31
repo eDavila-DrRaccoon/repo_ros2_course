@@ -17,7 +17,7 @@ def generate_launch_description():
     rviz_config_file = os.path.join(
         pkg_share,
         'rviz',
-        'robot1.rviz'
+        'client_robot.rviz'
     )
 
     # Read URDF files
@@ -32,104 +32,68 @@ def generate_launch_description():
     
     with open(robot4_urdf, 'r') as infp:
         robot4_description = infp.read()
+    
+    # robot1: RobotStatus publisher node
+    robotstatus1 = Node(
+        package='s7_py_client_robot',
+        executable='client_robot1_exe',
+        name='robot1',
+        namespace='robot1',
+        remappings=[  # <<< this makes /robot1/get_two_poses → /get_two_poses
+            ('get_two_poses', '/get_two_poses'),
+        ],
+        output='screen'
+    )
+
+    # robot2: RobotStatus publisher node
+    robotstatus2 = Node(
+        package='s7_py_client_robot',
+        executable='client_robot2_exe',
+        name='robot2',
+        namespace='robot2',
+        remappings=[  # <<< this makes /robot1/get_two_poses → /get_two_poses
+            ('get_two_poses', '/get_two_poses'),
+        ],
+        output='screen'
+    )
+
+    # robot3: RobotStatus publisher node
+    robotstatus3 = Node(
+        package='s7_py_client_robot',
+        executable='client_robot3_exe',
+        name='robot3',
+        namespace='robot3',
+        remappings=[  # <<< this makes /robot1/get_two_poses → /get_two_poses
+            ('get_two_poses', '/get_two_poses'),
+        ],
+        output='screen'
+    )
+
+    # robot4: RobotStatus publisher node
+    robotstatus4 = Node(
+        package='s7_py_client_robot',
+        executable='client_robot4_exe',
+        name='robot4',
+        namespace='robot4',
+        remappings=[  # <<< this makes /robot1/get_two_poses → /get_two_poses
+            ('get_two_poses', '/get_two_poses'),
+        ],
+        output='screen'
+    )
+
+    # RViz2
+    rviz = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d', rviz_config_file],
+        output='screen'
+    )
 
     return LaunchDescription([
-        # robot1 robot_state_publisher
-        # Node(
-        #     package='robot_state_publisher',
-        #     executable='robot_state_publisher',
-        #     # name='robot1_state_publisher',
-        #     namespace='robot1',
-        #     parameters=[{'robot_description': robot1_description}],
-        #     output='screen'
-        # ),
-        # robot1 state publisher node
-        Node(
-            package='s7_py_client_robot',
-            executable='client_robot1_exe',
-            name='robot1',
-            namespace='robot1',
-            remappings=[  # <<< this makes /robot1/get_two_poses → /get_two_poses
-                ('get_two_poses', '/get_two_poses'),
-            ],
-            output='screen'
-        ),
-
-        # # robot2 robot_state_publisher
-        # Node(
-        #     package='robot_state_publisher',
-        #     executable='robot_state_publisher',
-        #     name='robot2_state_publisher',
-        #     namespace='robot2',
-        #     parameters=[
-        #         {'robot_description': robot2_description},
-        #     ],
-        #     output='screen'
-        # ),
-        # robot2 state publisher node
-        # Node(
-        #     package='s7_py_client_robot',
-        #     executable='client_robot2_exe',
-        #     name='robot2',
-        #     namespace='robot2',
-        #     remappings=[  # <<< this makes /robot1/get_two_poses → /get_two_poses
-        #         ('get_two_poses', '/get_two_poses'),
-        #     ],
-        #     output='screen'
-        # ),
-
-        # # robot3 robot_state_publisher
-        # Node(
-        #     package='robot_state_publisher',
-        #     executable='robot_state_publisher',
-        #     name='robot3_state_publisher',
-        #     namespace='robot3',
-        #     parameters=[
-        #         {'robot_description': robot3_description},
-        #     ],
-        #     output='screen'
-        # ),
-        # robot3 state publisher node
-        # Node(
-        #     package='s7_py_client_robot',
-        #     executable='client_robot3_exe',
-        #     name='robot3',
-        #     namespace='robot3',
-        #     remappings=[  # <<< this makes /robot1/get_two_poses → /get_two_poses
-        #         ('get_two_poses', '/get_two_poses'),
-        #     ],
-        #     output='screen'
-        # ),
-
-        # # robot4 robot_state_publisher
-        # Node(
-        #     package='robot_state_publisher',
-        #     executable='robot_state_publisher',
-        #     name='robot4_state_publisher',
-        #     namespace='robot4',
-        #     parameters=[
-        #         {'robot_description': robot4_description},
-        #     ],
-        #     output='screen'
-        # ),
-        # robot4 state publisher node
-        # Node(
-        #     package='s7_py_client_robot',
-        #     executable='client_robot4_exe',
-        #     name='robot4',
-        #     namespace='robot4',
-        #     remappings=[  # <<< this makes /robot1/get_two_poses → /get_two_poses
-        #         ('get_two_poses', '/get_two_poses'),
-        #     ],
-        #     output='screen'
-        # ),
-
-        # RViz2
-        # Node(
-        #     package='rviz2',
-        #     executable='rviz2',
-        #     name='rviz2',
-        #     arguments=['-d', rviz_config_file]
-        #     output='screen',
-        # )
+        robotstatus1,
+        # robotstatus2,
+        # robotstatus3,
+        # robotstatus4,
+        # rviz,
     ])

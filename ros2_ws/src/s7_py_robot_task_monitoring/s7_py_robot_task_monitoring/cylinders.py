@@ -14,9 +14,12 @@ class CylinderVisualizer(Node):
         # TF broadcaster for all cylinders
         self.broadcaster = TransformBroadcaster(self)
 
+        # --- Number of robots ---
+        self.robot_num = 1
+
         # Create subscribers for pickup & delivery for robots 1–4
         self.subs = [] # keep subscriptions alive
-        for rid in range(1, 2):
+        for rid in range(1, self.robot_num + 1):
             ns = f'/robot{rid}'
             sub_pick = self.create_subscription(
                 Pose2D, f'{ns}/pickup_pose',
@@ -64,6 +67,8 @@ def main(args=None):
     node = CylinderVisualizer()
     try:
         rclpy.spin(node)
+    except Exception as e:
+        node.get_logger().error(f'Exception caught: {e}')
     finally:
         node.destroy_node()
         rclpy.shutdown()
