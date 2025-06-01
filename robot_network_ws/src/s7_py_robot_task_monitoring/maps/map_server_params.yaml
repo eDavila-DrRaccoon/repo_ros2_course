@@ -1,0 +1,6 @@
+map_server:
+  ros__parameters:
+    yaml_filename: "src/s7_py_robot_task_monitoring/maps/tec_warehouse.yaml" # or sim_tec_warehouse
+    topic_name: "static_map"
+    frame_id: "map"
+    use_sim_time: True
