@@ -9,10 +9,6 @@ Official repository for the ROS 2 course taught at Tecnológico de Monterrey, Ca
 
 # Instructions to launch the ROS 2 Packages
 
-Here's the LaTeX content you provided converted to **Markdown** format, suitable for a GitHub `README.md` file:
-
----
-
 ## 1. Running ROS 2 Examples
 
 ### Examples to Try
