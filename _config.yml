@@ -1,0 +1,22 @@
+# Site Configuration
+# title: ROS 2 Course Repository
+# description: "ROS 2 | Humble Hawksbill · Foxy Fitzroy"
+
+author:
+  name: Eduardo Dávila
+  email: eduardodavila94@hotmail.com
+
+# Theme
+# theme: jekyll-theme-cayman
+# or
+remote_theme:  pages-themes/cayman@v0.2.0
+show_downloads: true
+google_analytics:
+
+# Other options
+baseurl: "/"  # use "/" if it is in root
+url: "https://edavila-drraccoon.github.io"
+
+# Plugins
+plugins:
+  - jekyll-remote-theme
