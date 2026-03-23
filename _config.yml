@@ -1,0 +1,22 @@
+# Site Configuration
+title: ROS 2 Course Repository – 2025
+description: "ROS 2: Humble Hawksbill · Foxy Fitzroy | C++ · Python | Ubuntu: 20.04 Focal Fossa · 22.04 Jammy Jellyfish"
+
+author:
+  name: Eduardo Dávila
+  email: eduardodavila94@hotmail.com
+
+# Theme
+# theme: jekyll-theme-cayman
+# or
+remote_theme:  pages-themes/cayman@v0.2.0
+show_downloads: true
+google_analytics:
+
+# Other options
+baseurl: "/"  # use "/" if it is in root
+url: "https://edavila-drraccoon.github.io"
+
+# Plugins
+plugins:
+  - jekyll-remote-theme
