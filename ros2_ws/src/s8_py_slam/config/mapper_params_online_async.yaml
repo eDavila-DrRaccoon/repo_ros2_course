@@ -1,8 +1,0 @@
-slam_toolbox:
-  ros__parameters:
-    use_sim_time: true
-    resolution: 0.01
-    mode: mapping
-    odom_frame: odom
-    map_frame: map
-    scan_topic: /scan
