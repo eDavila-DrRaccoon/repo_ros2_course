@@ -1,11 +1,11 @@
-# ROS 2 Course Repository – 2025
+# ROS 2 Course Repository – 2026
 
 - **Author:** Eduardo de Jesús Dávila Meza, Ph.D.
 - **Email:** [eduardodavila94@hotmail.com](mailto:eduardodavila94@hotmail.com)
-- **LinkedIn:** [EduardoDavila-AI](https://www.linkedin.com/in/eduardodavila-ai/)
+- **LinkedIn:** [EduardoDavilaMeza](https://www.linkedin.com/in/eduardodavilameza/)
 - **HackerRank:** [eduardodavila94](https://www.hackerrank.com/profile/eduardodavila94)
 
-Official repository of the ROS 2 course taught at Tecnológico de Monterrey, Campus Guadalajara, in 2025. This course is designed for students in the *Robotics and Intelligent Systems Engineering* program and aims to provide a solid foundation in the use and development of ROS 2 Humble applications.
+Official repository of the ROS 2 course taught at Tecnológico de Monterrey, Campus Guadalajara, in 2026. This course is designed for students in the *Robotics and Intelligent Systems Engineering* program and aims to provide a solid foundation in the use and development of ROS 2 Humble applications.
 
 # Instructions to launch the ROS 2 Packages
 
@@ -55,7 +55,7 @@ Use the arrow keys to move the turtle. This example demonstrates publishing velo
 ![Example screenshot showing terminal outputs from both the Talker-Listener example and the Turtlesim node example in action.](assets/EduardoDavila_evidence_s1.png)
 *Figure: Example screenshot showing terminal outputs from both the Talker-Listener example and the Turtlesim node example in action.*
 
-## 2. Running ROS 2 Nodes
+<!-- ## 2. Running ROS 2 Nodes
 
 ### Executing ROS 2 Publishers and Subscribers
 
@@ -671,4 +671,4 @@ This displays the complete ROS 2 graph for the SLAM setup.
 
 
 
-
+ -->
