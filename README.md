@@ -2,7 +2,7 @@
 
 - **Author:** Eduardo de Jesús Dávila Meza, Ph.D.
 - **LinkedIn:** [EduardoDavilaMeza](https://www.linkedin.com/in/eduardodavilameza/)
-- **Institutional Email:** [eduardodavila94@hotmail.com](mailto:eduardodavila94@hotmail.com)
+- **Institutional Email:** [eduardo.davila.meza@tec.mx](mailto:eduardo.davila.meza@tec.mx)
 - **Personal Email:** [eduardodavila94@hotmail.com](mailto:eduardodavila94@hotmail.com)
 <!-- - **HackerRank:** [eduardodavila94](https://www.hackerrank.com/profile/eduardodavila94) -->
 
