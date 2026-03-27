@@ -1,3 +1,5 @@
 ros2_ws/.vscode/
-robot_network_ws
-ros2_ws/src/
+ros2_ws/src/s2_py_pubsub/resource
+ros2_ws/src/s2_py_pubsub/s2_py_pubsub/__pycache__/
+ros2_ws/src/s2_py_pubsub/s2_py_pubsub/__init__.py
+ros2_ws/src/s2_py_pubsub/test/

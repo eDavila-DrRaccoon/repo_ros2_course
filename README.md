@@ -56,7 +56,7 @@ Use the arrow keys to move the turtle. This example demonstrates publishing velo
 ![Example screenshot showing terminal outputs from both the Talker-Listener example and the Turtlesim node example in action.](assets/EduardoDavila_evidence_s1.png)
 *Figure: Example screenshot showing terminal outputs from both the Talker-Listener example and the Turtlesim node example in action.*
 
-<!-- ## 2. Running ROS 2 Nodes
+## 2. Running ROS 2 Nodes: Publishers and Subscribers
 
 ### Executing ROS 2 Publishers and Subscribers
 
@@ -123,7 +123,7 @@ This visualization should show the topics connecting your publisher and subscrib
 *Figure: Example screenshot showing terminal outputs of the publisher and subscriber nodes, in C++ and Python, in action.*
 
 
-## 3. Running ROS 2 Services and Clients
+<!-- ## 3. Running ROS 2 Nodes: Services and Clients
 
 ### Executing ROS 2 Services and Clients
 
