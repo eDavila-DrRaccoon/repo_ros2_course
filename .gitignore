@@ -7,8 +7,10 @@ ros2_ws/src/s2_py_pubsub/s2_py_pubsub/__pycache__/
 ros2_ws/src/s2_py_pubsub/s2_py_pubsub/__init__.py
 ros2_ws/src/s2_py_pubsub/test/
 
-s3_cpp_srvcli/
-s3_py_srvcli/
+ros2_ws/src/s3_py_srvcli/resource/
+ros2_ws/src/s3_py_srvcli/s3_py_srvcli/__pycache__/
+ros2_ws/src/s3_py_srvcli/s3_py_srvcli/__init__.py
+ros2_ws/src/s3_py_srvcli/test/
 
 s4_custom_interface/
 s4_cpp_apps/
