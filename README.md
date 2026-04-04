@@ -123,7 +123,7 @@ This visualization should show the topics connecting your publisher and subscrib
 *Figure: Example screenshot showing terminal outputs of the publisher and subscriber nodes, in C++ and Python, in action.*
 
 
-<!-- ## 3. Running ROS 2 Nodes: Services and Clients
+## 3. Running ROS 2 Nodes: Services and Clients
 
 ### Executing ROS 2 Services and Clients
 
@@ -201,7 +201,7 @@ You should observe that the `py_server` and `cpp_server` nodes successfully proc
 *Figure: Example screenshot showing terminal outputs from the servers and clients in action.*
 
 
-## 4. ROS 2 Custom `.msg` and `.srv` Files
+<!-- ## 4. ROS 2 Custom `.msg` and `.srv` Files
 
 ### Executing ROS 2 Publishers, Subscribers, Services, and Clients
 
