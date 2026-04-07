@@ -201,7 +201,7 @@ You should observe that the `py_server` and `cpp_server` nodes successfully proc
 *Figure: Example screenshot showing terminal outputs from the servers and clients in action.*
 
 
-<!-- ## 4. ROS 2 Custom `.msg` and `.srv` Files
+## 4. ROS 2 Custom `.msg` and `.srv` Files
 
 ### Executing ROS 2 Publishers, Subscribers, Services, and Clients
 
@@ -309,7 +309,7 @@ This will display a graph of all publishers, subscribers, and services, confirmi
 *Figure: Example screenshot showing the ROS 2 graph of the publisher, subscriber, and service nodes.*
 
 
-## 5. ROS 2 Parameters, YAML, and Launch Files (Image Acquisition)
+<!-- ## 5. ROS 2 Parameters, YAML, and Launch Files (Image Acquisition)
 
 ### Executing ROS 2 Image Publishers and Subscribers
 
