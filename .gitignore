@@ -17,10 +17,15 @@ ros2_ws/src/s4_py_apps/s4_py_apps/__pycache__/
 ros2_ws/src/s4_py_apps/s4_py_apps/__init__.py
 ros2_ws/src/s4_py_apps/test/
 
-s5_cpp_camera/
-s5_py_camera/
-s5_cpp_camera_usr/
-s5_py_camera_usr/
+ros2_ws/src/s5_py_camera/resource/
+ros2_ws/src/s5_py_camera/s5_py_camera/__pycache__/
+ros2_ws/src/s5_py_camera/s5_py_camera/__init__.py
+ros2_ws/src/s5_py_camera/test/
+
+ros2_ws/src/s5_py_camera_usr/resource/
+ros2_ws/src/s5_py_camera_usr/s5_py_camera_usr/__pycache__/
+ros2_ws/src/s5_py_camera_usr/s5_py_camera_usr/__init__.py
+ros2_ws/src/s5_py_camera_usr/test/
 
 s6_cpp_urdf/
 s6_py_urdf/

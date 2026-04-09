@@ -309,7 +309,7 @@ This will display a graph of all publishers, subscribers, and services, confirmi
 *Figure: Example screenshot showing the ROS 2 graph of the publisher, subscriber, and service nodes.*
 
 
-<!-- ## 5. ROS 2 Parameters, YAML, and Launch Files (Image Acquisition)
+## 5. ROS 2 Parameters, YAML, and Launch Files (Image Acquisition)
 
 ### Executing ROS 2 Image Publishers and Subscribers
 
@@ -389,7 +389,7 @@ This will show the image topic being published and subscribed to, confirming pro
 *Figure: Example screenshot showing the image windows and the ROS 2 graph of the publisher and subscriber nodes.*
 
 
-## 6. URDF Modeling and Launch Files (Robot States)
+<!-- ## 6. URDF Modeling and Launch Files (Robot States)
 
 ### Executing ROS 2 Robot State Publishers
 
