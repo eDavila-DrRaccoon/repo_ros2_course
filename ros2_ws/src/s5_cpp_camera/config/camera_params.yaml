@@ -1,0 +1,6 @@
+cpp_camera_node:
+  ros__parameters:
+    camera:
+      deviceID: 0
+      width: 640
+      height: 480
