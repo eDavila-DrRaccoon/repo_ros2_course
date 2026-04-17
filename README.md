@@ -389,7 +389,7 @@ This will show the image topic being published and subscribed to, confirming pro
 *Figure: Example screenshot showing the image windows and the ROS 2 graph of the publisher and subscriber nodes.*
 
 
-<!-- ## 6. URDF Modeling and Launch Files (Robot States)
+## 6. URDF Modeling and Launch Files (Robot States)
 
 ### Executing ROS 2 Robot State Publishers
 
@@ -465,7 +465,7 @@ This will show the `joint_states` topic and how the publisher nodes are linked.
 *Figure: Example screenshot showing the simulation of the RDK X3 Robot in RViz.*
 
 
-## 7. `tf2` Library (Robot Network)
+<!-- ## 7. `tf2` Library (Robot Network)
 
 ### Executing ROS 2 Robot Status Publishers
 

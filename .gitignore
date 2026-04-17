@@ -1,34 +1,48 @@
+.vscode/
+
 robot_network_ws/
 
 ros2_ws/.vscode/
+
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
 
 ros2_ws/src/s2_py_pubsub/resource/
 ros2_ws/src/s2_py_pubsub/s2_py_pubsub/__pycache__/
 ros2_ws/src/s2_py_pubsub/s2_py_pubsub/__init__.py
 ros2_ws/src/s2_py_pubsub/test/
+ros2_ws/src/s2_py_pubsub/setup.cfg
 
 ros2_ws/src/s3_py_srvcli/resource/
 ros2_ws/src/s3_py_srvcli/s3_py_srvcli/__pycache__/
 ros2_ws/src/s3_py_srvcli/s3_py_srvcli/__init__.py
 ros2_ws/src/s3_py_srvcli/test/
+ros2_ws/src/s3_py_srvcli/setup.cfg
 
 ros2_ws/src/s4_py_apps/resource/
 ros2_ws/src/s4_py_apps/s4_py_apps/__pycache__/
 ros2_ws/src/s4_py_apps/s4_py_apps/__init__.py
 ros2_ws/src/s4_py_apps/test/
+ros2_ws/src/s4_py_apps/setup.cfg
 
 ros2_ws/src/s5_py_camera/resource/
 ros2_ws/src/s5_py_camera/s5_py_camera/__pycache__/
 ros2_ws/src/s5_py_camera/s5_py_camera/__init__.py
 ros2_ws/src/s5_py_camera/test/
+ros2_ws/src/s5_py_camera/setup.cfg
 
 ros2_ws/src/s5_py_camera_usr/resource/
 ros2_ws/src/s5_py_camera_usr/s5_py_camera_usr/__pycache__/
 ros2_ws/src/s5_py_camera_usr/s5_py_camera_usr/__init__.py
 ros2_ws/src/s5_py_camera_usr/test/
+ros2_ws/src/s5_py_camera_usr/setup.cfg
 
-s6_cpp_urdf/
-s6_py_urdf/
+ros2_ws/src/s6_py_urdf/resource/
+ros2_ws/src/s6_py_urdf/s6_py_urdf/__pycache__/
+ros2_ws/src/s6_py_urdf/s6_py_urdf/__init__.py
+ros2_ws/src/s6_py_urdf/test/
+ros2_ws/src/s6_py_urdf/setup.cfg
 
 s7_robot_network_interface/
 s7_py_robot_task_monitoring
