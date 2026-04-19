@@ -2,7 +2,7 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot name="rdk_x3_robot">
+<robot name="rdk_x3_amr">
 
   <!-- Materials -->
   <material name="base_link_color">
@@ -44,7 +44,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/> 
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/base_link.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/base_link.STL"/>
       </geometry>
       <material name="base_link_color"/>
     </visual>
@@ -52,7 +52,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/base_link.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/base_link.STL"/>
       </geometry>
     </collision>
   </link>
@@ -75,7 +75,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/left_front_wheel.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/left_front_wheel.STL"/>
       </geometry>
       <material name="wheel_color"/>
     </visual>
@@ -84,7 +84,7 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh
-          filename="package://s6_cpp_urdf/meshes/left_front_wheel.STL"/>
+          filename="package://s6_py_urdf/meshes/left_front_wheel.STL"/>
       </geometry>
     </collision>
   </link>
@@ -109,7 +109,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/left_back_wheel.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/left_back_wheel.STL"/>
       </geometry>
       <material name="wheel_color"/>
     </visual>
@@ -117,7 +117,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/left_back_wheel.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/left_back_wheel.STL"/>
       </geometry>
     </collision>
   </link>
@@ -142,7 +142,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/right_front_wheel.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/right_front_wheel.STL"/>
       </geometry>
       <material name="wheel_color"/>
     </visual>
@@ -150,7 +150,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/right_front_wheel.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/right_front_wheel.STL"/>
       </geometry>
     </collision>
   </link>
@@ -175,7 +175,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/right_back_wheel.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/right_back_wheel.STL"/>
       </geometry>
       <material name="wheel_color"/>
     </visual>
@@ -183,7 +183,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/right_back_wheel.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/right_back_wheel.STL"/>
       </geometry>
     </collision>
   </link>
@@ -208,7 +208,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/camera_link.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/camera_link.STL"/>
       </geometry>
       <material name="camera_color"/>
     </visual>
@@ -216,7 +216,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/camera_link.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/camera_link.STL"/>
       </geometry>
     </collision>
   </link>
@@ -241,7 +241,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/camera2_link.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/camera2_link.STL"/>
       </geometry>
       <material name="camera2_color"/>
     </visual>
@@ -249,7 +249,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/camera2_link.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/camera2_link.STL"/>
       </geometry>
     </collision>
   </link>
@@ -274,7 +274,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/lidar_link.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/lidar_link.STL"/>
       </geometry>
       <material name="lidar_color"/>
     </visual>
@@ -282,7 +282,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/lidar_link.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/lidar_link.STL"/>
       </geometry>
     </collision>
   </link>
@@ -306,7 +306,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/imu_link.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/imu_link.STL"/>
       </geometry>
       <material name="imu_color"/>
     </visual>
@@ -314,7 +314,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/> 
       <geometry>
-        <mesh filename="package://s6_cpp_urdf/meshes/imu_link.STL"/>
+        <mesh filename="package://s6_py_urdf/meshes/imu_link.STL"/>
       </geometry>
     </collision>
   </link>

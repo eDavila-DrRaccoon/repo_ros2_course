@@ -24,8 +24,7 @@ class StatePublisher(Node):
         self.timer = self.create_timer(0.033, self.publish)
 
         # State variables
-        # degree means one degree
-        self.degree = math.pi / 180.0
+        self.degree = math.pi / 180.0 # degree means one degree in radians
         self.spin_angle = 0.0
         self.step = self.degree
         self.angle = 0.0

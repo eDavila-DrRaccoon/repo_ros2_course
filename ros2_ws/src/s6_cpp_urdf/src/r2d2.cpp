@@ -35,8 +35,7 @@ class StatePublisher : public rclcpp::Node{
         rclcpp::TimerBase::SharedPtr timer_;
 
     // State variables
-    // degree means one degree
-    const double degree = M_PI/180.0;
+    const double degree = M_PI/180.0; // degree means one degree in radians
     double angle = 0.0;
 
     double tilt = 0.0;

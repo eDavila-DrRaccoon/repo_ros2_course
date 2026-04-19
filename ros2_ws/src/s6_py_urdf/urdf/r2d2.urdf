@@ -231,13 +231,13 @@
         <visual>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://s6_cpp_urdf/meshes/l_finger.dae"/>
+                <mesh filename="package://s6_py_urdf/meshes/l_finger.dae"/>
             </geometry>
         </visual>
 
         <collision>
             <geometry>
-                <mesh filename="package://s6_cpp_urdf/meshes/l_finger.dae"/>
+                <mesh filename="package://s6_py_urdf/meshes/l_finger.dae"/>
             </geometry>
             <origin rpy="0.0 0 0" xyz="0 0 0"/>
         </collision>
@@ -252,13 +252,13 @@
         <visual>
             <origin rpy="-3.1415 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://s6_cpp_urdf/meshes/l_finger.dae"/>
+                <mesh filename="package://s6_py_urdf/meshes/l_finger.dae"/>
             </geometry>
         </visual>
 
         <collision>
             <geometry>
-                <mesh filename="package://s6_cpp_urdf/meshes/l_finger.dae"/>
+                <mesh filename="package://s6_py_urdf/meshes/l_finger.dae"/>
             </geometry>
             <origin rpy="-3.1415 0 0" xyz="0 0 0"/>
         </collision>
@@ -273,13 +273,13 @@
         <visual>
             <origin rpy="0.0 0 0" xyz="0.09137 0.00495 0"/>
             <geometry>
-                <mesh filename="package://s6_cpp_urdf/meshes/l_finger_tip.dae"/>
+                <mesh filename="package://s6_py_urdf/meshes/l_finger_tip.dae"/>
             </geometry>
         </visual>
 
         <collision>
             <geometry>
-                <mesh filename="package://s6_cpp_urdf/meshes/l_finger_tip.dae"/>
+                <mesh filename="package://s6_py_urdf/meshes/l_finger_tip.dae"/>
             </geometry>
             <origin rpy="0.0 0 0" xyz="0.09137 0.00495 0"/>
         </collision>
@@ -294,13 +294,13 @@
         <visual>
             <origin rpy="-3.1415 0 0" xyz="0.09137 0.00495 0"/>
             <geometry>
-                <mesh filename="package://s6_cpp_urdf/meshes/l_finger_tip.dae"/>
+                <mesh filename="package://s6_py_urdf/meshes/l_finger_tip.dae"/>
             </geometry>
         </visual>
 
         <collision>
             <geometry>
-                <mesh filename="package://s6_cpp_urdf/meshes/l_finger_tip.dae"/>
+                <mesh filename="package://s6_py_urdf/meshes/l_finger_tip.dae"/>
             </geometry>
             <origin rpy="-3.1415 0 0" xyz="0.09137 0.00495 0"/>
         </collision>

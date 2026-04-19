@@ -24,8 +24,7 @@ class StatePublisher(Node):
         self.timer = self.create_timer(0.033, self.publish)
 
         # State variables
-        # degree means one degree
-        self.degree = math.pi / 180.0
+        self.degree = math.pi / 180.0 # degree means one degree in radians
         self.angle = 0.0
 
         self.tilt = 0.0
@@ -51,12 +50,12 @@ class StatePublisher(Node):
         # odom is the base coordinate system of tf2
         t.header.frame_id = 'odom'
         # base_footprint is defined in URDF file and it is the base coordinate of model
-        t.child_frame_id = 'axis'
+        t.child_frame_id = 'base_footprint'
 
         # Add translation change
         t.transform.translation.x = math.cos(self.angle) * 1.0
         t.transform.translation.y = math.sin(self.angle) * 1.0
-        t.transform.translation.z = 0.7
+        t.transform.translation.z = 0.0
 
         # Euler angle into Quaternion and add rotation change
         q = tf_transformations.quaternion_from_euler(0, 0, self.angle + math.pi / 2)
