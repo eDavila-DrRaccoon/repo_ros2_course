@@ -465,7 +465,7 @@ This will show the `joint_states` topic and how the publisher nodes are linked.
 *Figure: Example screenshot showing the simulation of the RDK X3 Robot in RViz.*
 
 
-<!-- ## 7. `tf2` Library (Robot Network)
+## 7. `tf2` Library (Robot Network)
 
 ### Executing ROS 2 Robot Status Publishers
 
@@ -567,7 +567,7 @@ This shows the connections between all publishers, subscribers, services, and cl
 *Figure: Example screenshot showing the visualization of the RDK X3 `Robot1` in RViz.*
 
 
-## 8. Occupancy Grid Map (SLAM Simulation)
+<!-- ## 8. Occupancy Grid Map (SLAM Simulation)
 
 ### Executing ROS 2 SLAM Simulation
 
