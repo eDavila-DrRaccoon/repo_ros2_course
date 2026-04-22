@@ -33,8 +33,8 @@ def generate_launch_description():
     with open(uav_urdf, 'r') as infp:
         uav_description = infp.read()
     
-    # cylinder1 (pickup pose for Robot1) robot_state_publisher
-    cylinder1_robot1_desc = Node(
+    # cylinder1 (pickup pose for the AMR) robot_state_publisher
+    cylinder1_amr_desc = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         # name='cylinder1_state_publisher',
@@ -42,8 +42,8 @@ def generate_launch_description():
         parameters=[{'robot_description': cylinder1_description}],
         output='screen'
     )
-    # cylinder2 (delivery pose for Robot1) robot_state_publisher
-    cylinder2_robot1_desc = Node(
+    # cylinder2 (delivery pose for the AMR) robot_state_publisher
+    cylinder2_amr_desc = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         # name='cylinder2_state_publisher',
@@ -80,11 +80,11 @@ def generate_launch_description():
         output='screen'
     )
 
-    # robots pose subscriber-publisher node
-    robots_tf = Node(
+    # robot (amr) pose subscriber-publisher node
+    robot_tf = Node(
         package='s7_py_robot_task_monitoring',
-        executable='robots_exe',
-        name='robots',
+        executable='robot_exe',
+        name='robot',
         output='screen'
     )
 
@@ -98,14 +98,14 @@ def generate_launch_description():
     )
     
     return LaunchDescription([
-        cylinder1_robot1_desc,
-        cylinder2_robot1_desc,
+        cylinder1_amr_desc,
+        cylinder2_amr_desc,
         
         amr_desc,
         uav_desc,
 
         cylinders_tf,
-        robots_tf,
+        robot_tf,
         
         # rviz
     ])
