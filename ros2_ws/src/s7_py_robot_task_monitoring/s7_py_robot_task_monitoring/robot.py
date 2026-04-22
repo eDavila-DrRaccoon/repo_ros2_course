@@ -49,7 +49,7 @@ class RobotVisualizer(Node):
 
     def RobotPose_callback(self, msg: AMRStatus, robot_id: int):
         """
-        Broadcast 'odom'→'robotN/base_footprint' transform
+        Broadcast 'odom'→'rdk_x3_amr(robotN)/base_footprint' transform
         based on Pose2D field from AMRStatus message.
         """
         t = TransformStamped()
@@ -62,7 +62,7 @@ class RobotVisualizer(Node):
         t.transform.translation.y = msg.pose.y
         t.transform.translation.z = 0.0
 
-        # Rotation from yaw θ
+        # Rotation from yaw (theta)
         q = tf_transformations.quaternion_from_euler(0.0, 0.0, msg.pose.theta)
         t.transform.rotation.x = q[0]
         t.transform.rotation.y = q[1]

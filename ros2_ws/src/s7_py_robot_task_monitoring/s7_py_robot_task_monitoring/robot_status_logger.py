@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
-from sympy import euler
-
 import rclpy
 from rclpy.node import Node
 from s7_robot_network_interface.msg import UAVStatus
 from s7_robot_network_interface.msg import AMRStatus
 from datetime import datetime, timezone
 try:
-    from zoneinfo import ZoneInfo  # Available in Python 3.9+ (For Foxy/Ubuntu 22.04 with Python 3.10)
+    from zoneinfo import ZoneInfo  # Available in Python 3.9+ (For Humble/Ubuntu 22.04 with Python 3.10)
 except ImportError:
-    from backports.zoneinfo import ZoneInfo  # For Python < 3.9 (For Humble/Ubuntu 20.04 with Python 3.8)
+    from backports.zoneinfo import ZoneInfo  # For Python < 3.9 (For Foxy/Ubuntu 20.04 with Python 3.8)
 import tf_transformations
 import math
 
@@ -55,7 +53,7 @@ class RobotStatusLogger(Node):
             'desc': self.stage_desc[self.NO_DATA_STAGE]
         }
 
-        # Initialize statuses and stale counters
+        # 1. Initialize statuses and stale counters
         self.statuses = {rid: self.NO_DATA_ENTRY(rid) for rid in range(1, self.robot_num + 1)}
         self.no_update_counts = {rid: 0 for rid in range(1, self.robot_num + 1)}
 
@@ -71,16 +69,12 @@ class RobotStatusLogger(Node):
         #     self.subs.append(sub)
         
         # 2. Subscribe to /rdk_x3_amr/robot_status
-        amr_sub = self.create_subscription(
-            AMRStatus, '/rdk_x3_amr/robot_status',
-            lambda msg: self.status_callback(msg, 1), 10
-            )
+        self.create_subscription(AMRStatus, '/rdk_x3_amr/robot_status',
+            lambda msg: self.status_callback(msg, 1), 10)
         
         # 3. Subscribe to /tello_uav/robot_status
-        uav_sub = self.create_subscription(
-            UAVStatus, '/tello_uav/robot_status',
-            lambda msg: self.status_callback(msg, 2), 10
-            )
+        self.create_subscription(UAVStatus, '/tello_uav/robot_status',
+            lambda msg: self.status_callback(msg, 2), 10)
 
         # 4. Timer to print periodic updates (~30 Hz)
         self.create_timer(0.033, self.print_table)
@@ -171,6 +165,8 @@ def main(args=None):
     node = RobotStatusLogger()
     try:
         rclpy.spin(node)
+    except Exception as e:
+        node.get_logger().error(f'Exception caught: {e}')
     finally:
         node.destroy_node()
         rclpy.shutdown()

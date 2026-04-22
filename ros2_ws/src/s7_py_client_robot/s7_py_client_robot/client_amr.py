@@ -84,12 +84,9 @@ class PosePublisher(Node):
             self.pickup_pose.x - self.x
         )
 
-        self.get_logger().info(
-            f'New pickup_pose: ({self.pickup_pose.x:.2f}, {self.pickup_pose.y:.2f}, {self.pickup_pose.theta:.2f} rad)' 
-        )
-        self.get_logger().info(
-            f'New delivery_pose: ({self.delivery_pose.x:.2f}, {self.delivery_pose.y:.2f}, {self.delivery_pose.theta:.2f} rad)'  
-        )
+        self.get_logger().info(f'New pickup_pose: ({self.pickup_pose.x:.2f}, {self.pickup_pose.y:.2f}, {self.pickup_pose.theta:.2f} rad)')
+
+        self.get_logger().info(f'New delivery_pose: ({self.delivery_pose.x:.2f}, {self.delivery_pose.y:.2f}, {self.delivery_pose.theta:.2f} rad)')
 
     def normalize_angle(self, angle: float) -> float:
         """Normalize an angle to [-pi, pi]."""
@@ -99,14 +96,10 @@ class PosePublisher(Node):
             angle += 2 * math.pi
         return angle
 
-    def reached(self, a: float, b: float, tol: float = 1e-2) -> bool:
-        """Return True if a and b are within tol."""
-        return abs(a - b) < tol
-
     def publish(self):
         # --- State machine logic ---
         if self.stage == 0:
-            # 1. Rotate toward pickup
+            # 0. Rotate toward pickup
             yaw_diff = self.normalize_angle(self.pickup_to_yaw - self.yaw)
             if abs(yaw_diff) > self.yaw_step:
                 self.yaw += math.copysign(self.yaw_step, yaw_diff)
@@ -116,7 +109,7 @@ class PosePublisher(Node):
                 self.stage = 1
 
         elif self.stage == 1:
-            # 2. Move toward pickup position
+            # 1. Move toward pickup position
             dx = self.pickup_pose.x - self.x
             dy = self.pickup_pose.y - self.y
             dist = math.hypot(dx, dy)
@@ -130,7 +123,7 @@ class PosePublisher(Node):
                 self.stage = 2
 
         elif self.stage == 2:
-            # 3. Rotate to final pickup yaw
+            # 2. Rotate to final pickup yaw
             yaw_diff = self.normalize_angle(self.pickup_yaw - self.yaw)
             if abs(yaw_diff) > self.yaw_step:
                 self.yaw += math.copysign(self.yaw_step, yaw_diff)
@@ -145,7 +138,7 @@ class PosePublisher(Node):
                 self.stage = 3
 
         elif self.stage == 3:
-            # 4. Rotate toward delivery
+            # 3. Rotate toward delivery
             yaw_diff = self.normalize_angle(self.delivery_to_yaw - self.yaw)
             if abs(yaw_diff) > self.yaw_step:
                 self.yaw += math.copysign(self.yaw_step, yaw_diff)
@@ -155,7 +148,7 @@ class PosePublisher(Node):
                 self.stage = 4
 
         elif self.stage == 4:
-            # 5. Move toward delivery position
+            # 4. Move toward delivery position
             dx = self.delivery_pose.x - self.x
             dy = self.delivery_pose.y - self.y
             dist = math.hypot(dx, dy)
@@ -169,7 +162,7 @@ class PosePublisher(Node):
                 self.stage = 5
 
         elif self.stage == 5:
-            # 6. Rotate to final delivery yaw
+            # 5. Rotate to final delivery yaw
             yaw_diff = self.normalize_angle(self.delivery_yaw - self.yaw)
             if abs(yaw_diff) > self.yaw_step:
                 self.yaw += math.copysign(self.yaw_step, yaw_diff)
@@ -179,7 +172,7 @@ class PosePublisher(Node):
                 self.stage = 6
 
         elif self.stage == 6:
-            # 7. Completed delivery, request new goals
+            # 6. Completed delivery, request new goals
             self.get_logger().info('Completed delivery. Requesting new goals...')
             self.get_new_poses()
             self.stage = 0

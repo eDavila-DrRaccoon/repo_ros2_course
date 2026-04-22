@@ -23,7 +23,6 @@ def generate_launch_description():
         output='screen'
     )
 
-
     return LaunchDescription([
         amr_status,
         uav_status

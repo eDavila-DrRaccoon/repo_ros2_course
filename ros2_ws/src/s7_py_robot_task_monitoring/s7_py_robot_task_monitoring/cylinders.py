@@ -17,7 +17,7 @@ class CylinderVisualizer(Node):
         # --- Number of robots ---
         self.robot_num = 1
 
-        # Create subscribers for pickup & delivery for robots 1–4
+        # Create subscribers for pickup & delivery for robots: 1 to robot_num
         self.subs = [] # keep subscriptions alive
         for rid in range(1, self.robot_num + 1):
             ns = '/rdk_x3_amr' # f'/robot{rid}'
@@ -34,7 +34,7 @@ class CylinderVisualizer(Node):
     def pose_callback(self, msg: Pose2D, robot_id: int, kind: str):
         """
         Broadcast a TF frame for a cylinder based on:
-        - robot_id: 1-4
+        - robot_id: 1 - robot_num
         - kind: 'pickup' or 'delivery'
         """
         # Determine cylinder index: pickup1→1, delivery1→2, pickup2→3, etc.
@@ -51,7 +51,7 @@ class CylinderVisualizer(Node):
         t.transform.translation.y = msg.y
         t.transform.translation.z = 0.0
 
-        # Rotation from yaw θ
+        # Rotation from yaw (theta)
         q = tf_transformations.quaternion_from_euler(0.0, 0.0, msg.theta)
         t.transform.rotation.x = q[0]
         t.transform.rotation.y = q[1]

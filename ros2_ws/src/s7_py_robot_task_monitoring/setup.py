@@ -28,7 +28,7 @@ setup(
         'console_scripts': [
             "cylinders_exe = s7_py_robot_task_monitoring.cylinders:main",
             "robot_exe = s7_py_robot_task_monitoring.robot:main",
-            "robot_status_logger_exe = s7_py_robot_task_monitoring.robot_status_logger:main",
+            "robot_status_logger_exe = s7_py_robot_task_monitoring.robot_status_logger:main"
         ],
     },
 )

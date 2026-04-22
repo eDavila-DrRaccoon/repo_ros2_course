@@ -25,7 +25,6 @@ class TaskManagerService(Node):
             self.pickup_publishers[robot_id] = self.create_publisher(Pose2D, f'{ns}/pickup_pose', 10)
             self.delivery_publishers[robot_id] = self.create_publisher(Pose2D, f'{ns}/delivery_pose', 10)
 
-
     def GetTwoPoses_callback(self, request, response):
         lim = 2.0
 
@@ -72,5 +71,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-
-
