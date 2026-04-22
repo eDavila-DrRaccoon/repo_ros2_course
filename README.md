@@ -457,8 +457,8 @@ This will show the `joint_states` topic and how the publisher nodes are linked.
 *Figure: Example screenshot showing terminal outputs and the ROS 2 graph of the robot state publishers in action.*
 
 **Evidence 2:**
-![PDF showing the graphical representation of the current coordinate frame tree.](assets/EduardoDavila_evidence_s6_2.png)
-*Figure: PDF showing the graphical representation of the current coordinate frame tree.*
+![PDF/Screenshot showing the graphical representation of the current coordinate frame tree.](assets/EduardoDavila_evidence_s6_2.png)
+*Figure: PDF/Screenshot showing the graphical representation of the current coordinate frame tree.*
 
 **Evidence 3:**
 ![Example screenshot showing the simulation of the RDK X3 Robot in RViz.](assets/EduardoDavila_evidence_s6_3.png)
@@ -555,16 +555,20 @@ rqt_graph
 This shows the connections between all publishers, subscribers, services, and clients in the robot network.
 
 **Evidence 1:**
-![Example screenshot showing terminal outputs and the ROS 2 graph of the robot network in action.](assets/EduardoDavila_evidence_s7_1.png)
-*Figure: Example screenshot showing terminal outputs and the ROS 2 graph of the robot network in action.*
+![Example screenshot showing terminal outputs of the robot network nodes in action.](assets/EduardoDavila_evidence_s7_1.png)
+*Figure: Example screenshot showing terminal outputs of the robot network nodes in action.*
 
 **Evidence 2:**
-![PDF showing the graphical representation of the current coordinate frame tree.](assets/EduardoDavila_evidence_s7_2.png)
-*Figure: PDF showing the graphical representation of the current coordinate frame tree.*
+![Example screenshot showing the ROS 2 graph of the robot network nodes.](assets/EduardoDavila_evidence_s7_2.png)
+*Figure: Example screenshot showing the ROS 2 graph of the robot network nodes.*
 
 **Evidence 3:**
-![Example screenshot showing the visualization of the RDK X3 Robot1 in RViz.](assets/EduardoDavila_evidence_s7_3.png)
-*Figure: Example screenshot showing the visualization of the RDK X3 `Robot1` in RViz.*
+![PDF/Screenshot showing the graphical representation of the current coordinate frame tree.](assets/EduardoDavila_evidence_s7_3.png)
+*Figure: PDF/Screenshot showing the graphical representation of the current coordinate frame tree.*
+
+**Evidence 4:**
+![Example screenshot showing the visualization of the RDK X3 AMR, the Tello UAV, and the goal poses represented by cylinders in RViz.](assets/EduardoDavila_evidence_s7_4.png)
+*Figure: Example screenshot showing the visualization of the `RDK X3 AMR`, the `Tello UAV`, and the goal poses represented by cylinders in RViz.*
 
 
 <!-- ## 8. Occupancy Grid Map (SLAM Simulation)
