@@ -9,7 +9,7 @@ def generate_launch_description():
 
     # Path to the URDF file
     # amr or cylinder_plugin
-    urdf_path = os.path.join(pkg_share, 'urdf', 'amr.urdf')
+    urdf_path = os.path.join(pkg_share, 'urdf', 'cylinder_plugin.urdf')
 
     # Path to RViz configuration file
     rviz_config_path = os.path.join('src/s8_py_slam/', 'rviz', 'slam.rviz')

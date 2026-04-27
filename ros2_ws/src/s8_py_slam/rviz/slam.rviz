@@ -208,7 +208,7 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
-    - Alpha: 0.699999988079071
+    - Alpha: 0.5
       Class: rviz_default_plugins/Map
       Color Scheme: map
       Draw Behind: false
@@ -229,7 +229,7 @@ Visualization Manager:
         Value: /static_map_updates
       Use Timestamp: true
       Value: true
-    - Alpha: 0.699999988079071
+    - Alpha: 0.75
       Class: rviz_default_plugins/Map
       Color Scheme: map
       Draw Behind: false
@@ -296,25 +296,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 8.363699913024902
+      Distance: 6.291658401489258
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.966965675354004
-        Y: 3.0343310832977295
-        Z: 0.13184936344623566
+        X: 2.0929970741271973
+        Y: 2.226884365081787
+        Z: 0.12447308003902435
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.5597960948944092
+      Pitch: 1.5647963285446167
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.715403079986572
+      Yaw: 4.705405235290527
     Saved: ~
 Window Geometry:
   Displays:
