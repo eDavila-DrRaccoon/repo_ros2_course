@@ -36,7 +36,8 @@ class RobotStatusLogger(Node):
             6: "Requesting new points",
             7: "Fault: stuck or error",
             8: "No data received",
-            9: "Hovering"
+            9: "Exploring",
+            10: "Hovering"
         }
 
         # Threshold for stale data (cycles)
@@ -76,8 +77,8 @@ class RobotStatusLogger(Node):
         self.create_subscription(UAVStatus, '/tello_uav/robot_status',
             lambda msg: self.status_callback(msg, 2), 10)
 
-        # 4. Timer to print periodic updates (~30 Hz)
-        self.create_timer(0.033, self.print_table)
+        # 4. Timer to print periodic updates (~15 Hz)
+        self.create_timer(0.066, self.print_table)
 
     def status_callback(self, msg, robot_id: int):
         # 1. Format timestamp as HH:MM:SS.ss
@@ -111,7 +112,7 @@ class RobotStatusLogger(Node):
             stage = msg.task_stage
             desc = self.stage_desc.get(stage, "Unknown stage")
         else:
-            stage = 9
+            stage = 10
             desc = self.stage_desc.get(stage, "Unknown stage")
 
         # Update status entry

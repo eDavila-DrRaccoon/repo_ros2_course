@@ -79,4 +79,14 @@ ros2_ws/src/s7_py_task_manager/setup.cfg
 
 # s7_robot_network_interface/
 
-s8_py_slam/
+# s8_py_slam/
+ros2_ws/src/s8_py_slam/resource/
+ros2_ws/src/s8_py_slam/s8_py_slam/__pycache__/
+ros2_ws/src/s8_py_slam/s8_py_slam/__init__.py
+ros2_ws/src/s8_py_slam/test/
+ros2_ws/src/s8_py_slam/setup.cfg
+# Other files in s8_py_slam that will be ignored:
+ros2_ws/src/s8_py_slam/config/
+ros2_ws/src/s8_py_slam/launch/occupancy_grid_launch.py
+ros2_ws/src/s8_py_slam/s8_py_slam/relative_map_terminal_printer.py
+ros2_ws/src/s8_py_slam/s8_py_slam/map_terminal_printer.py
