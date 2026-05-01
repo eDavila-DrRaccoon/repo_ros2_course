@@ -11,7 +11,7 @@ def generate_launch_description():
 
     # Path to the URDF file
     # amr_plugin or cylinder_plugin
-    urdf_plugin_path = os.path.join(pkg_share, 'urdf', 'cylinder_plugin.urdf')
+    urdf_plugin_path = os.path.join(pkg_share, 'urdf', 'amr_plugin.urdf')
 
     # Launch file for Gazebo
     gazebo_launch = os.path.join(
@@ -43,5 +43,5 @@ def generate_launch_description():
                 '-z', '90.0'
             ],
             output='screen'
-        ),
+        )
     ])

@@ -86,7 +86,8 @@ ros2_ws/src/s8_py_slam/s8_py_slam/__init__.py
 ros2_ws/src/s8_py_slam/test/
 ros2_ws/src/s8_py_slam/setup.cfg
 # Other files in s8_py_slam that will be ignored:
-ros2_ws/src/s8_py_slam/config/
+ros2_ws/src/s8_py_slam/config/cartographer_config.lua
+ros2_ws/src/s8_py_slam/config/robot_controllers.yaml
 ros2_ws/src/s8_py_slam/launch/occupancy_grid_launch.py
 ros2_ws/src/s8_py_slam/s8_py_slam/relative_map_terminal_printer.py
 ros2_ws/src/s8_py_slam/s8_py_slam/map_terminal_printer.py

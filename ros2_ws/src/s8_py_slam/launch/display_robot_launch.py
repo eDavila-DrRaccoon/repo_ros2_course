@@ -9,11 +9,12 @@ def generate_launch_description():
 
     # Path to the URDF file
     # amr or cylinder_plugin
-    urdf_path = os.path.join(pkg_share, 'urdf', 'cylinder_plugin.urdf')
+    urdf_path = os.path.join(pkg_share, 'urdf', 'amr.urdf')
 
     # Path to RViz configuration file
-    rviz_config_path = os.path.join('src/s8_py_slam/', 'rviz', 'slam.rviz')
-    
+    # Source from src to save changes in RViz session
+    rviz_config_path = os.path.join('src/s8_py_slam/', 'rviz', 'slam.rviz') 
+
     # Read URDF files
     with open(urdf_path, 'r') as infp:
         robot_desc = infp.read()
@@ -38,15 +39,5 @@ def generate_launch_description():
             name='rviz2',
             arguments=['-d', rviz_config_path],
             output='screen',
-        ),
-
-        # 3) Slam Toolbox
-        # Node(
-        #     package='slam_toolbox',
-        #     executable='async_slam_toolbox_node',
-        #     name='async_slam_toolbox',
-        #     output='screen',
-        #     parameters=[{
-        #         'use_sim_time': True}]
-        # ),
+        )
     ])

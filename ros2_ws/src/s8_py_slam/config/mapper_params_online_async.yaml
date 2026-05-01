@@ -1,0 +1,25 @@
+async_slam_toolbox:
+  ros__parameters:
+    # ROS Parameters
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_footprint
+    scan_topic: /scan
+    use_map_saver: true
+    mode: mapping #localization
+
+    # Core
+    map_update_interval: 0.1
+    resolution: 0.01
+
+    # Laser
+    min_laser_range: 0.15
+    max_laser_range: 12.0
+    scan_buffer_maximum_scan_distance: 12.0
+
+    # Timing
+    minimum_time_interval: 0.1
+
+    # Stability
+    minimum_travel_distance: 0.18
+    minimum_travel_heading: 0.18

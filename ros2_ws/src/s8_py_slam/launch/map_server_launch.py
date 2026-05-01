@@ -12,13 +12,13 @@ def generate_launch_description():
 
     return LaunchDescription([
         # Static transform from map to odom
-        Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            name='static_map_to_odom',
-            arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
-            output='screen'
-        ),
+        # Node(
+        #     package='tf2_ros',
+        #     executable='static_transform_publisher',
+        #     name='static_map_to_odom',
+        #     arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
+        #     output='screen'
+        # ),
 
         # Launch the map_server node
         Node(
