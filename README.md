@@ -571,70 +571,81 @@ This shows the connections between all publishers, subscribers, services, and cl
 *Figure: Example screenshot showing the visualization of the `RDK X3 AMR`, the `Tello UAV`, and the goal poses represented by cylinders in RViz.*
 
 
-<!-- ## 8. Occupancy Grid Map (SLAM Simulation)
+## 8. Occupancy Grid Map (SLAM Simulation)
 
 ### Executing ROS 2 SLAM Simulation
 
-After editing the Python nodes and updating `CMakeLists.txt`, `setup.py`, and `package.xml`, build the package:
+After creating and installing the necessary packages, editing and saving the Python nodes, and updating the `setup.py` and `package.xml` files, build the packages:
 
 ```bash
+colcon build --packages-select s7_robot_network_interface
+colcon build --packages-select s7_py_robot_task_monitoring
 colcon build --packages-select s8_py_slam
+colcon build --packages-select s8_openslam_gmapping
+colcon build --packages-select s8_slam_gmapping
 ```
 
 Then, in **five separate terminals**, source your workspace and run:
 
-* **Terminal 1** – Launch the robot in Gazebo:
+* **Terminal 1** – Spawn the robot in the Gazebo environment through the `spawn_robot_launch.py` launch file:
 
   ```bash
   source install/setup.bash
   ros2 launch s8_py_slam spawn_robot_launch.py
   ```
 
-* **Terminal 2** – Display robot in RViz:
+* **Terminal 2** – Display the robot in the RViz environment through the `display_robot_launch.py` launch file:
 
   ```bash
   source install/setup.bash
   ros2 launch s8_py_slam display_robot_launch.py
   ```
 
-* **Terminal 3** – Start the SLAM node (with simulation time):
+* **Terminal 3** – Launch the SLAM node from the `s8_slam_gmapping` package:
 
   ```bash
   source install/setup.bash
-  ros2 launch slam_toolbox online_async_launch.py use_sim_time:=True
+  ros2 launch s8_slam_gmapping slam_gmapping.launch.py
   ```
 
-* **Terminal 4** – Run the pose publisher node:
+* **Terminal 4** – Launch the `lifecycle_manager` node, from the `nav2_lifecycle_manager` package, and the `map_server` node, from the `nav2_map_server` package, to load a previously-created occupancy grid map through the `/static_map` topic:
 
   ```bash
   source install/setup.bash
-  ros2 run s8_py_slam pose_publisher_exe
+  ros2 launch s8_py_slam map_server_launch.py
   ```
 
-* **Terminal 5** – Run the teleop node (to control the robot):
+* **In Terminal 5** – Run the subscriber-publisher node, which extracts the transformations between the `map` and `base_footprint` frames from the Transform (TF) tree (the bus-type tf topic for coordinate transforms), and publishes the robot pose as `PoseStamped` and `AMRStatus` messages:
+
+  ```bash
+  source install/setup.bash
+  ros2 run s8_py_slam pose_tf_sub_pub_exe
+  ```
+
+* **In Terminal 6** – Run the status subscriber node, from the `s7_py_robot_task_monitoring` package, to log the robot status, especifically its pose, as received from the `AMRStatus` message published by the previous node:
+
+  ```bash
+  source install/setup.bash
+  ros2 run s7_py_robot_task_monitoring robot_status_logger_exe
+  ```
+
+* **In Terminal 7** – Preferably at a separate window, run the teleop node to control the robot with the keyboard:
 
   ```bash
   source install/setup.bash
   ros2 run teleop_twist_keyboard teleop_twist_keyboard
   ```
 
+Now, pressing the indicated keys will move the robot in the desired direction and velocity. As the robot moves, the SLAM node will process the LiDAR data and build an occupancy grid map of the environment, which will be visualized in RViz.
+
 You should observe:
 
-1. The robot URDF model is spawned in Gazebo with a LiDAR plugin.
-2. The `robot_state_publisher` node visualizes the robot in RViz.
-3. An occupancy grid is built and displayed through the `/map` topic in RViz as the robot explores the environment.
-
----
-
-### Visualizing Frame Tree with `view_frames`
-
-To generate a TF frame tree PDF:
-
-```bash
-ros2 run tf2_tools view_frames
-```
-
-This creates a `frames.pdf` in the current directory.
+You should observe that:
+1. The robot URDF model is spawn inside the simulated world/environment in Gazebo, along with the `libgazebo_ros_ray_sensor.so` plugin that simulates a LiDAR sensor.
+2. The robot (`robot_state_publisher`) node publishes the URDF model and the coordinate transforms for its visualization in RViz, as simulated in Gazebo.
+3. The occupancy grid map is displayed through the `/map` topic in the Map display in RViz, and it is being updated/completed while the robot is moved across the entire simulated environment in Gazebo by using the `teleop_twist_keyboard` node.
+4. The `map_server` node correctly loaded the previously-created occupancy grid map and provided it through the `/static_map` topic, as the `lifecycle_manager` node correctly managed the lifecycle of the `map_server` node.
+5. The `robot_status_logger` node is correctly receiving the `AMRStatus` message and logging the robot pose in the terminal output, as the pose subscriber-publisher node is correctly extracting the transformations between the map and `base_footprint` frames from the TF tree, and publishing the robot pose as `PoseStamped` and `AMRStatus` messages.
 
 ---
 
@@ -643,37 +654,37 @@ This creates a `frames.pdf` in the current directory.
 To check node and topic connections:
 
 ```bash
-ros2 run rqt_graph rqt_graph
-```
-
-Or simply:
-
-```bash
-rqt_graph
+ros2 run rqt_graph rqt_graph # or simply: rqt_graph
 ```
 
 This displays the complete ROS 2 graph for the SLAM setup.
 
+---
+
+### Visualizing Frame Tree with `view_frames`
+
+To visualize the coordinate frame tree:
+
+```bash
+ros2 run tf2_tools view_frames
+```
+
+This creates a `frames.pdf` file in the current directory.
+
+---
 
 **Evidence 1:**
-![Example screenshot showing terminal outputs and the ROS 2 graph of the SLAM simulation in action.](assets/EduardoDavila_evidence_s8_1.png)
-*Figure: Terminal outputs and ROS 2 graph of the SLAM simulation.*
+![Example screenshot showing terminal outputs of the SLAM simulation nodes in action.](assets/EduardoDavila_evidence_s8_1.png)
+*Figure: Example screenshot showing terminal outputs of the SLAM simulation nodes in action.*
 
 **Evidence 2:**
-![PDF showing the graphical representation of the current coordinate frame tree.](assets/EduardoDavila_evidence_s8_2.png)
-*Figure: PDF showing the current coordinate frame tree.*
+![Example screenshot showing the ROS 2 graph of the SLAM simulation nodes visualized with the `rqt_graph` tool.](assets/EduardoDavila_evidence_s8_2.png)
+*Figure: Example screenshot showing the ROS 2 graph of the SLAM simulation nodes visualized with the `rqt_graph` tool.*
 
 **Evidence 3:**
-![Example screenshot showing the simulation of the RDK X3 Robot in Gazebo.](assets/EduardoDavila_evidence_s8_3.png)
-*Figure: Simulation of the RDK X3 Robot in Gazebo.*
+![PDF showing the graphical representation of the current coordinate frame tree visualized with the `view_frames` tool.](assets/EduardoDavila_evidence_s8_3.png)
+*Figure: PDF showing the graphical representation of the current coordinate frame tree visualized with the `view_frames` tool.*
 
 **Evidence 4:**
-![Example screenshot showing the visualization of the RDK X3 Robot in RViz.](assets/EduardoDavila_evidence_s8_4.png)
-*Figure: Visualization of the RDK X3 Robot in RViz.*
-
-
-
-
-
-
- -->
+![Example screenshot showing the simulation and visualization of the RDK X3 AMR in Gazebo and RViz, respectively, and the terminal where the `teleop_twist_keyboard` node is running.](assets/EduardoDavila_evidence_s8_4.png)
+*Figure: Example screenshot showing the simulation and visualization of the RDK X3 AMR in Gazebo and RViz, respectively, and the terminal where the `teleop_twist_keyboard` node is running.*
