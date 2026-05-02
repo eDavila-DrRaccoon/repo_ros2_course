@@ -12,21 +12,12 @@ def generate_launch_description():
 
     return LaunchDescription([
         # Static transform from map to odom
-        # Node(
-        #     package='tf2_ros',
-        #     executable='static_transform_publisher',
-        #     name='static_map_to_odom',
-        #     arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
-        #     output='screen'
-        # ),
-
-        # Launch the map_server node
         Node(
-            package='nav2_map_server',
-            executable='map_server',
-            name='map_server',
-            output='screen',
-            parameters=[map_yaml_file]
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='static_map_to_odom',
+            arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
+            output='screen'
         ),
 
         # Launch the lifecycle manager to manage the map_server node
@@ -40,5 +31,14 @@ def generate_launch_description():
                 'autostart': True,
                 'node_names': ['map_server']
             }]
+        ),
+
+        # Launch the map_server node
+        Node(
+            package='nav2_map_server',
+            executable='map_server',
+            name='map_server',
+            output='screen',
+            parameters=[map_yaml_file]
         ),
     ])

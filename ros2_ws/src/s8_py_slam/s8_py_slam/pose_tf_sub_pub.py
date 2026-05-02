@@ -26,7 +26,7 @@ class PosePublisher(Node):
     def publish_pose(self):
         try:
             now = rclpy.time.Time()
-            trans = self.tf_buffer.lookup_transform('odom', 'base_footprint', now)
+            trans = self.tf_buffer.lookup_transform(target_frame='map', source_frame='base_footprint', time=now)
 
             # Extract position and orientation from the transform
             position = Point()
