@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
 from tf2_ros import TransformListener, Buffer
@@ -6,7 +7,6 @@ from geometry_msgs.msg import Point
 from geometry_msgs.msg import Quaternion
 from s7_robot_network_interface.msg import AMRStatus
 import tf_transformations
-import math
 
 class PosePublisher(Node):
     def __init__(self):

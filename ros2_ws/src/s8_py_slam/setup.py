@@ -30,8 +30,8 @@ setup(
     entry_points={
         'console_scripts': [
             "pose_tf_sub_pub_exe = s8_py_slam.pose_tf_sub_pub:main",
-            "map_terminal_printer_exe = s8_py_slam.map_terminal_printer:main",
-            "relative_map_terminal_printer_exe = s8_py_slam.relative_map_terminal_printer:main"
+            # "map_terminal_printer_exe = s8_py_slam.map_terminal_printer:main",
+            # "relative_map_terminal_printer_exe = s8_py_slam.relative_map_terminal_printer:main"
         ],
     },
 )

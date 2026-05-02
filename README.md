@@ -638,8 +638,6 @@ Then, in **five separate terminals**, source your workspace and run:
 
 Now, pressing the indicated keys will move the robot in the desired direction and velocity. As the robot moves, the SLAM node will process the LiDAR data and build an occupancy grid map of the environment, which will be visualized in RViz.
 
-You should observe:
-
 You should observe that:
 1. The robot URDF model is spawn inside the simulated world/environment in Gazebo, along with the `libgazebo_ros_ray_sensor.so` plugin that simulates a LiDAR sensor.
 2. The robot (`robot_state_publisher`) node publishes the URDF model and the coordinate transforms for its visualization in RViz, as simulated in Gazebo.
