@@ -8,8 +8,8 @@ def generate_launch_description():
     pkg_share = get_package_share_directory('s8_py_slam')
 
     # Path to the URDF file
-    # amr or cylinder_plugin
-    urdf_path = os.path.join(pkg_share, 'urdf', 'amr.urdf')
+    # amr or box_robot_plugin
+    urdf_path = os.path.join(pkg_share, 'urdf', 'box_robot_plugin.urdf')
 
     # Path to RViz configuration file
     # Source from src to save changes in RViz session

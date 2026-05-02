@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="cylinder_robot">
+<robot name="box_robot">
 
     <!-- Materials -->
     <material name="blue">
