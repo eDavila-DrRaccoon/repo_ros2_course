@@ -2,6 +2,7 @@
 
 robot_network_ws/
 
+##-- ROS2 workspace files --##
 ros2_ws/.vscode/
 
 ros2_ws/build/
@@ -91,3 +92,10 @@ ros2_ws/src/s8_py_slam/config/robot_controllers.yaml
 ros2_ws/src/s8_py_slam/launch/occupancy_grid_launch.py
 ros2_ws/src/s8_py_slam/s8_py_slam/relative_map_terminal_printer.py
 ros2_ws/src/s8_py_slam/s8_py_slam/map_terminal_printer.py
+
+##-- SROS2 workspace files --##
+sros2_ws/.vscode/
+
+sros2_ws/build/
+sros2_ws/install/
+sros2_ws/log/

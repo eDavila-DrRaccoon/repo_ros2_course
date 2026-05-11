@@ -622,7 +622,7 @@ Then, in **five separate terminals**, source your workspace and run:
   ros2 run s8_py_slam pose_tf_sub_pub_exe
   ```
 
-* **In Terminal 6** – Run the status subscriber node, from the `s7_py_robot_task_monitoring` package, to log the robot status, especifically its pose, as received from the `AMRStatus` message published by the previous node:
+* **In Terminal 6** – Run the status subscriber node, from the `s7_py_robot_task_monitoring` package, to log the robot status, specifically its pose, as received from the `AMRStatus` message published by the previous node:
 
   ```bash
   source install/setup.bash
